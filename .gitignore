@@ -1,0 +1,118 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+instance/
+_build/
+.Python
+Lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Poetry
+poetry.lock
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Distribution / packaging
+.Python
+build/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.whl
+*.tar.gz
+*.tgz
+
+# PyInstaller
+#  Usually these files are written into a dist/ directory.
+#  But since it is very hard to tell whether dist/ is used
+#  for PyInstaller only, add it to the ignore list.
+dist/
+build/
+
+# Celery / Django stuff
+*.log
+*.pot
+
+# Sphinx documentation
+docs/_build/
+
+# Temp files
+*~
+*.swp
+*.bak
+*.tmp
+*.bck
+*.orig
+*.py.orig
+*.py.bak
+*.mo
+*.eln
+*.so
+*.dylib
+
+# OS generated files #
+.DS_Store
+Thumbs.db
+
+# JetBrains IDE
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Editors (e.g. Sublime Text)
+*.sublime-project
+*.sublime-workspace
+
+# Other
+*.db
+*.sqlite
+*.sqlite3
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Compiled files
+*.o
+*.so
+*.dylib
+
+# Coverage data
+.coverage
+coverage.xml
+htmlcov/
+
+# Distribution Artifacts
+dist/*
