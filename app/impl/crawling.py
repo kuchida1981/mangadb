@@ -100,7 +100,6 @@ class CrawlingImpl(CrawlingUsecase):
                 yield url
 
     def _save_comic_html(self, comic_url: str) -> bool:
-        content = self.http.request(comic_url)
         destpath = os.path.join(
             settings.DEST_TITLE_DIR,
             os.path.basename(comic_url),
@@ -109,6 +108,7 @@ class CrawlingImpl(CrawlingUsecase):
         if os.path.exists(destpath) and os.path.isfile(destpath):
             return True
 
+        content = self.http.request(comic_url)
         with open(destpath, "wb") as fp:
             fp.write(content)
 
