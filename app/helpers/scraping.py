@@ -1,3 +1,4 @@
+from bs4 import BeautifulSoup
 from pydantic import BaseModel
 
 
@@ -6,5 +7,5 @@ class FindAllArgs(BaseModel):
 
 
 class ScrapingHelper:
-    def findall(self, args: FindAllArgs):
-        pass
+    def soup(self, content: bytes):
+        return BeautifulSoup(content, "html.parser")
