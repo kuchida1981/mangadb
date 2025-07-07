@@ -1,20 +1,27 @@
-import time
-
 import requests
+from requests.sessions import HTTPAdapter
+from urllib3.util.retry import Retry
 
-from ..settings import settings
+from app.settings import settings
 
 
 class HttpHelper:
 
+    session: requests.Session
+
     def __init__(self, delay_seconds: float = settings.HTTP_DELAY_SECONDS):
-        self.delay_seconds = delay_seconds
+
+        session = requests.Session()
+        retries = Retry(
+            total=10,
+            backoff_factor=delay_seconds,
+            status_forcelist=[429, 500, 502, 503, 504],
+        )
+        session.mount("https://", HTTPAdapter(max_retries=retries))
+        self.session = session
 
     def request(self, url: str) -> bytes:
-        res = requests.get(url, cookies=settings.HTTP_DEFAULT_COOKIES)
+        res = self.session.get(url, cookies=settings.HTTP_DEFAULT_COOKIES)
         res.raise_for_status()
-
-        if self.delay_seconds > 0:
-            time.sleep(self.delay_seconds)
 
         return res.content

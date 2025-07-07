@@ -50,8 +50,8 @@ class ToDBImpl(ToDBUsecase):
 
             script_ldjson_tag = soup.find(
                 "script", {"type": "application/ld+json"})
-            assert script_ldjson_tag is not None and isinstance(
-                script_ldjson_tag, Tag)
+            if script_ldjson_tag is None or not isinstance(script_ldjson_tag, Tag):
+                raise ValueError()
 
             src = script_ldjson_tag.text
             src = src.replace("\n", "")

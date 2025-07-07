@@ -30,4 +30,7 @@ types-requests = "^2.32.4.20250611"
 black = "^25.1.0"
 
 [tool.black]
-line-length = 119
+line-length = 120
+
+[tool.ruff]
+lint.select = ["TID252", "S101"]
